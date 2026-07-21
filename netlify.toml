@@ -1,0 +1,28 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/pomba.html"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/imagens/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fontes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

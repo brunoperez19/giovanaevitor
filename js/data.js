@@ -1,0 +1,53 @@
+const LOCATIONS = [
+  {
+    id: "aruja",
+    title: "Arujá — Jardim Rincão",
+    address: "R. São José, 888 - Jardim Rincao, Arujá - SP, 07400-405",
+    street: "R. São José, 888",
+    neighborhood: "Jardim Rincão",
+    city: "Arujá",
+    state: "SP",
+    cep: "07400-405",
+    lat: -23.4023851,
+    lng: -46.3226824,
+  },
+  {
+    id: "santa-isabel",
+    title: "Santa Isabel — Morro Grande",
+    address:
+      "Estr. Benedito Alves da Silva, s/n - Morro Grande, Santa Isabel - SP, 07500-000",
+    street: "Estr. Benedito Alves da Silva, s/n",
+    neighborhood: "Morro Grande",
+    city: "Santa Isabel",
+    state: "SP",
+    cep: "07500-000",
+    lat: -23.3380979,
+    lng: -46.2187653,
+  },
+  {
+    id: "guarulhos-base",
+    title: "Guarulhos — Base Aérea",
+    address:
+      "Acesso Base Aerea - Rod. Hélio Smidt, S/N - Cumbica, Guarulhos - SP, 07190-100",
+    street: "Acesso Base Aerea - Rod. Hélio Smidt, S/N",
+    neighborhood: "Cumbica",
+    city: "Guarulhos",
+    state: "SP",
+    cep: "07190-100",
+    lat: -23.437859,
+    lng: -46.4805562,
+  },
+  {
+    id: "guarulhos-cecap",
+    title: "Guarulhos — Parque Cecap",
+    address:
+      "Av. Min. Evandro Lins e Silva, 10/100 - Parque Cecap, Guarulhos - SP, 07190-017",
+    street: "Av. Min. Evandro Lins e Silva, 10/100",
+    neighborhood: "Parque Cecap",
+    city: "Guarulhos",
+    state: "SP",
+    cep: "07190-017",
+    lat: -23.4531205,
+    lng: -46.4945935,
+  },
+];

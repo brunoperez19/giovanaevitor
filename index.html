@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giovana e Vitor</title>
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Giovana e Vitor">
+  <meta name="theme-color" content="#EAD4CC">
+  <link rel="manifest" href="./site.webmanifest">
+  <style>
+    @font-face {
+      font-family: 'Themysion';
+      src: url('./fontes/themysion.regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Versailles';
+      src: url('./fontes/versailles.woff2') format('woff2'),
+           url('./fontes/versailles.woff') format('woff'),
+           url('./fontes/versailles.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --blush: #EAD4CC;
+      --navy: #1C3A54;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--blush);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 40px 24px;
+      min-height: 100vh;
+    }
+
+    .logo {
+      font-family: 'Versailles', serif;
+      font-size: clamp(32px, 6vw, 36px);
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--navy);
+      text-transform: uppercase;
+      white-space: nowrap;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .video-wrap {
+      width: min(900px, 100%);
+      text-align: center;
+    }
+
+    .home-video {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      background: #ffffff;
+      margin: 0 auto;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      mix-blend-mode: darken;
+    }
+
+    h1 {
+      font-family: 'Themysion', cursive;
+      font-weight: 400;
+      font-size: clamp(54px, 8vw, 54px);
+      text-align: center;
+      margin-top: 20px;
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">GIOVANA E VITOR</div>
+
+  <div class="video-wrap">
+    <video
+      id="pomba-video"
+      class="home-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      webkit-playsinline
+      x5-playsinline
+      preload="auto"
+      disablepictureinpicture
+      controlslist="nodownload noplaybackrate noremoteplayback"
+    >
+      <source src="./video/pomba.mp4#t=0.001" type="video/mp4">
+      O seu navegador não suporta a etiqueta de vídeo.
+    </video>
+    <h1>Site em desenvolvimento</h1>
+  </div>
+
+  <script>
+    (function () {
+      const video = document.getElementById("pomba-video");
+      if (!video) return;
+
+      function configureVideo() {
+        video.defaultMuted = true;
+        video.muted = true;
+        video.volume = 0;
+        video.playsInline = true;
+        video.setAttribute("muted", "");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "");
+        video.setAttribute("x5-playsinline", "");
+      }
+
+      function forcePlay() {
+        configureVideo();
+
+        if (!video.paused && !video.ended) {
+          return Promise.resolve(true);
+        }
+
+        const promise = video.play();
+        if (promise && typeof promise.then === "function") {
+          return promise.then(function () {
+            return true;
+          }).catch(function () {
+            return false;
+          });
+        }
+
+        return Promise.resolve(!video.paused);
+      }
+
+      configureVideo();
+      forcePlay();
+
+      [
+        "loadstart",
+        "loadedmetadata",
+        "loadeddata",
+        "canplay",
+        "canplaythrough",
+        "playing"
+      ].forEach(function (eventName) {
+        video.addEventListener(eventName, forcePlay, { passive: true });
+      });
+
+      video.addEventListener("ended", function () {
+        video.currentTime = 0;
+        forcePlay();
+      });
+
+      window.addEventListener("pageshow", forcePlay);
+      window.addEventListener("focus", forcePlay);
+
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) {
+          forcePlay();
+        }
+      });
+
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0] && entries[0].isIntersecting) {
+            forcePlay();
+          }
+        }, { threshold: 0.01 }).observe(video);
+      }
+
+      let retries = 0;
+      const retryTimer = window.setInterval(function () {
+        forcePlay().then(function (playing) {
+          if (playing || video.paused === false || retries >= 12) {
+            window.clearInterval(retryTimer);
+          }
+        });
+        retries += 1;
+      }, 400);
+
+      function unlockPlayback() {
+        forcePlay().then(function (playing) {
+          if (playing || video.paused === false) {
+            ["touchstart", "touchend", "click", "scroll", "pointerdown"].forEach(function (eventName) {
+              document.removeEventListener(eventName, unlockPlayback, true);
+            });
+          }
+        });
+      }
+
+      ["touchstart", "touchend", "click", "scroll", "pointerdown"].forEach(function (eventName) {
+        document.addEventListener(eventName, unlockPlayback, {
+          capture: true,
+          passive: true
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giovana e Vitor</title>
+<link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="shortcut icon" href="./favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Giovana e Vitor">
+<meta name="theme-color" content="#EAD4CC">
+<link rel="manifest" href="./site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=lato:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<!-- ============ HEADER (hidden on home) ============ -->
+<header id="siteHeader">
+  <div class="logo">GIOVANA E VITOR</div>
+  <nav>
+    <a data-nav="casamento">o casamento</a>
+    <a data-nav="localizacao">localização</a>
+    <a data-nav="estadia">estadia e beleza</a>
+    <a data-nav="locomocao">locomoção</a>
+    <a data-nav="presentes">presentes</a>
+  </nav>
+  <button class="rsvp">confirme sua presença</button>
+</header>
+
+<!-- ============ HOME ============ -->
+<section class="page active" id="home">
+  <video class="home-video" autoplay loop muted playsinline>
+      <source src="./video/rio.mov" type="video/quicktime">
+      <source src="./video/rio.mp4" type="video/mp4">
+      O seu navegador não suporta a etiqueta de vídeo.
+  </video>
+</section>
+
+<!-- ============ O CASAMENTO ============ -->
+<section class="page" id="casamento">
+  <div class="band">
+  <div class="casamento">
+    <!-- calendar -->
+    <div class="cal-col">
+      <img src="./imagens/calendario.png" alt="">
+      <div class="cal-date">17.07.2027</div>
+    </div>
+
+    <!-- countdown -->
+    <div class="count-col">
+      <h1 class="count-title">CONTAGEM REGRESSIVA!</h1>
+      <div class="count-grid">
+        <div class="count-unit">
+          <div class="digits" id="c-days"><div class="digit">0</div><div class="digit">0</div><div class="digit">0</div></div>
+          <div class="unit-label">dias</div>
+        </div>
+        <div class="colon">:</div>
+        <div class="count-unit">
+          <div class="digits" id="c-hours"><div class="digit">0</div><div class="digit">0</div></div>
+          <div class="unit-label">horas</div>
+        </div>
+        <div class="colon">:</div>
+        <div class="count-unit">
+          <div class="digits" id="c-mins"><div class="digit">0</div><div class="digit">0</div></div>
+          <div class="unit-label">minutos</div>
+        </div>
+        <div class="colon">:</div>
+        <div class="count-unit">
+          <div class="digits" id="c-secs"><div class="digit">0</div><div class="digit">0</div></div>
+          <div class="unit-label">segundos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- attire -->
+    <div class="attire-col">
+      <div class="attire-title">traje passeio<br>completo</div>
+        <img src="./imagens/trajes.png" alt="">
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ============ LOCALIZAÇÃO ============ -->
+<section class="page" id="localizacao">
+  <div class="inner">
+  <div class="loc-wrap">
+    <div class="loc-photo">
+      <img src="./imagens/una/una.jpg" alt="Una Fabbrica" onerror="this.style.display='none'">
+    </div>
+    <div class="loc-info">
+      <h2>UNA FABBRICA</h2>
+      <p class="addr">Estr. Mun. São Bento do Lambarí, S/N<br>Brás Cubas, Mogi das Cruzes - SP, 08772-010</p>
+      <div class="loc-btns">
+        <a href="https://waze.com/ul?q=Una%20Fabbrica%20Mogi%20das%20Cruzes" target="_blank" rel="noopener">Abrir com Waze</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Una+Fabbrica+Mogi+das+Cruzes" target="_blank" rel="noopener">Abrir com Maps</a>
+      </div>
+      <div style="font-size: 6rem; text-align: right;" class="loc-tag script">a 1 hora de Sao Paulo</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ============ ESTADIA E BELEZA ============ -->
+<section class="page" id="estadia">
+
+
+  <div style="padding-bottom: 10px;" class="estadia-pad estadia-map-wrap">
+    <div class="map-app">
+      <aside class="sidebar">
+        <header class="sidebar__header">
+          <h1>Hospedagem</h1>
+          <p class="sidebar__hint">Clique em um pin no mapa ou na lista para ver o endereço</p>
+        </header>
+
+        <div class="sidebar__list" id="location-list"></div>
+
+        <section class="sidebar__detail" id="location-detail" hidden>
+          <button class="sidebar__back" id="back-button" type="button">
+            ← Voltar à lista
+          </button>
+          <div id="detail-content"></div>
+        </section>
+      </aside>
+
+      <main class="map-container">
+        <div id="map"></div>
+      </main>
+    </div>
+  </div>
+
+  <div style="background-color: transparent;" class="band">
+  <div class="estadia-pad">
+    <div class="sub-tabs">
+      <a data-sub="aruja">Salão</a>
+      <!-- <a data-sub="guarulhos">Guarulhos</a> -->
+      <a data-sub="domicilio">A domicílio</a>
+    </div>
+
+    <!-- GUARULHOS / hotel -->
+    <div class="sub-page" id="sub-guarulhos">
+      <div class="make-wrap">
+        <div class="make-list">
+          <div class="make-card">
+            <div class="txt"><h4>Gisele Make-up</h4><span>11 98644-7695</span></div>
+            <div class="ph"><img src="./imagens/salao/guarulhos/branco.png" alt="" onerror="this.style.display='none'"></div>
+          </div>
+          <div class="make-card">
+            <div class="txt"><h4>Gui Orbea Maquiador</h4><span>11 97641-3172</span></div>
+            <div class="ph"><img src="./imagens/salao/guarulhos/studicc.png" alt="" onerror="this.style.display='none'"></div>
+          </div>
+        </div>
+        <div class="make-illu">
+        <img src="./imagens/maquiagem.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- ARUJÁ -->
+    <div class="sub-page active" id="sub-aruja">
+     <div class="make-wrap">
+        <div class="make-list">
+          <div class="make-card">
+            <div class="txt"><h4>Beauty Time Aruja</h4><span>11 99914-6378</span><p>Av. dos Expedicionários, 720 - Jardim Rincao, Arujá - SP, 07400-460</p><a target="_blank" href="https://www.instagram.com/beautytimestudiodebeleza/">beautytimestudiodebeleza</a></div>
+            <div class="ph"><img src="./imagens/salao/aruja/beauty.png" alt="" onerror="this.style.display='none'"></div>
+
+          </div>
+          <div class="make-card">
+            <div class="txt"><h4>Studio Marcia Maria</h4><span>11 4654-2571</span><p>Rodovia Alberto Hinoto, 1510 - Arujá</p><a target="_blank" href="https://studiomarciamariaaruja.com.br/">studiomarciamariaaruja.com.br</a></div>
+            <div class="ph"><img src="./imagens/salao/aruja/marcia.png" alt="" onerror="this.style.display='none'"></div>
+          </div>
+          <div class="make-card">
+            <div class="txt"><h4>Studio A</h4><span>11 2650-3745</span><p>Av. Marechal Castelo Branco, 485 - Jardim Rincao, Arujá - SP, 07400-445</p><a target="_blank" href="https://www.instagram.com/studioaaruja">studioaaruja</a></div>
+            <div class="ph"><img src="./imagens/salao/aruja/studioa.png" alt="" onerror="this.style.display='none'"></div>
+          </div>
+        </div>
+        <div class="make-illu">
+        <img src="./imagens/maquiagem.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- A DOMICÍLIO / maquiagem -->
+    <div class="sub-page" id="sub-domicilio">
+      <div class="make-wrap">
+        <div class="make-list">
+          <div class="make-card">
+            <div class="txt"><h4>Gisele Make-up</h4><span>11 98644-7695</span></div>
+            <div class="ph"><img src="./imagens/salao/domicilio/gisele.png" alt="" onerror="this.style.display='none'"></div>
+          </div>
+          <div class="make-card">
+            <div class="txt"><h4>Gui Orbea Maquiador</h4><span>11 97641-3172</span></div>
+            <div class="ph"><img src="./imagens/salao/domicilio/guilherme.png" alt="" onerror="this.style.display='none'"></div>
+          </div>
+        </div>
+        <div class="make-illu">
+        <img src="./imagens/maquiagem.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<section class="page" id="locomocao">
+  <div class="inner alignCenter">
+    <br/><br/><br/>
+    <div class="presentes-title script">em breve</div>
+    <h1>Em breve ofertaremos serviços de taxi e vans.<br>No local há valet disponível</h1>
+    <img class="responsive" src="./imagens/locomocao.png" alt="Locomocao">
+  </div>
+</section>
+
+<!-- ============ PRESENTES ============ -->
+<section class="page" id="presentes">
+  <div class="inner alignCenter">
+    <br/><br/><br/>
+    <div class="presentes-title script">em breve</div>
+    <h1>Em breve disponibilizaremos a lista de presentes.</h1>
+  </div>
+</section>
+
+
+ <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+<script>
+  /* ---------- page navigation ---------- */
+  const pages = ['home','casamento','localizacao','estadia', 'locomocao', 'presentes'];
+  const header = document.getElementById('siteHeader');
+  function go(id){
+    pages.forEach(p=>document.getElementById(p).classList.toggle('active', p===id));
+    document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active', a.dataset.nav===id));
+    window.scrollTo({top:0,behavior:'instant'});
+    if (id === 'estadia' && window.initEstadiaMap) {
+      window.initEstadiaMap();
+    }
+  }
+  document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>go(a.dataset.nav)));
+  document.querySelectorAll('.logo').forEach(l=>l.addEventListener('click',()=>go('home')));
+  document.querySelectorAll('.logo').forEach(l=>l.style.cursor='pointer');
+
+  /* ---------- estadia sub-tabs ---------- */
+  const subs=['aruja','guarulhos','domicilio'];
+  function goSub(id){
+    subs.forEach(s=>document.getElementById('sub-'+s).classList.toggle('active', s===id));
+    document.querySelectorAll('.sub-tabs a').forEach(a=>a.classList.toggle('active', a.dataset.sub===id));
+  }
+  document.querySelectorAll('.sub-tabs a').forEach(a=>a.addEventListener('click',()=>goSub(a.dataset.sub)));
+  goSub('aruja');
+
+  /* ---------- countdown ---------- */
+  const target = new Date('2027-07-17T00:00:00-03:00').getTime();
+  function pad(n,len){return String(Math.max(0,n)).padStart(len,'0');}
+  function setDigits(el,str){
+    el.innerHTML = str.split('').map(d=>`<div class="digit">${d}</div>`).join('');
+  }
+  function tick(){
+    let diff = Math.max(0, target - Date.now());
+    const d = Math.floor(diff/86400000); diff-=d*86400000;
+    const h = Math.floor(diff/3600000);  diff-=h*3600000;
+    const m = Math.floor(diff/60000);    diff-=m*60000;
+    const s = Math.floor(diff/1000);
+    setDigits(document.getElementById('c-days'), pad(d,3));
+    setDigits(document.getElementById('c-hours'), pad(h,2));
+    setDigits(document.getElementById('c-mins'), pad(m,2));
+    setDigits(document.getElementById('c-secs'), pad(s,2));
+  }
+  tick(); setInterval(tick,1000);
+
+  /* ---------- rsvp button ---------- */
+  document.querySelector('.rsvp').addEventListener('click',()=>{
+    alert('Em breve vamos disponibilizar o formulário de confirmação de presença. Agradecemos a paciência!');
+  });
+</script>
+</body>
+</html>
