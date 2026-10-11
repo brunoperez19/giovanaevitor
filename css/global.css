@@ -38,11 +38,16 @@
     --white:        #ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:var(--header-h, 108px);
+  }
   body{
     font-family:'lato',sans-serif;
     color:var(--navy);
     background:var(--blush);
     min-height:100vh;
+    padding-top:var(--header-h, 108px);
     -webkit-font-smoothing:antialiased;
   }
   .logo{
@@ -63,14 +68,20 @@
   }
 
   /* ---------- HEADER / NAV ---------- */
-  header{
+  #siteHeader{
     background:var(--blush-header);
-    padding:26px 5vw 22px;
+    padding:22px 5vw 18px;
     display:flex;align-items:center;gap:2vw;
     flex-wrap:wrap;
-    position:sticky;top:0;z-index:99999;
+    position:fixed;top:0;left:0;right:0;z-index:99999;
+    box-shadow:0 8px 24px rgba(28,58,84,.08);
   }
-  header .logo{font-size:clamp(20px,2.2vw,32px); position: relative;}
+  #siteHeader .logo{
+    font-size:clamp(20px,2.2vw,32px);
+    position:relative;
+    text-decoration:none;
+    cursor:pointer;
+  }
   nav{display:flex;gap:clamp(16px,2.4vw,44px);flex:1;flex-wrap:wrap}
   nav a{
     font-size:clamp(14px,2.15vw,19px);
@@ -89,25 +100,24 @@
   .rsvp:hover{background:var(--navy-soft)}
 
   /* ---------- PAGE SYSTEM ---------- */
-  .page{display:none;animation:fade .45s ease}
-  .page.active{display:block}
+  .page{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
   /* ---------- HOME ---------- */
-  #home{background:var(--blush);min-height:calc(100vh - 96px);position:relative;overflow:hidden}
+  #home{background:var(--blush);min-height:calc(100vh - var(--header-h, 108px));position:relative;overflow:hidden}
   #home .gv{
     position:absolute;top:50%;left:0;width:100%;transform:translateY(-50%);
   }
   #home .gv svg{width:100%;height:auto;display:block}
 
   /* ---------- SHARED CONTENT BAND ---------- */
-  .band{background:var(--blush-band);min-height:calc(100vh - 96px)}
-  .inner{background:var(--blush);min-height:calc(100vh - 96px);padding-bottom:60px}
+  .band{background:var(--blush-band);min-height:calc(100vh - var(--header-h, 108px))}
+  .inner{background:var(--blush);min-height:calc(100vh - var(--header-h, 108px));padding-bottom:60px}
 
   /* ---------- O CASAMENTO ---------- */
   .casamento{
     display:grid;grid-template-columns:1fr 1.3fr 1fr;align-items:center;
-    gap:2vw;padding:60px 5vw 80px;min-height:calc(100vh - 96px);
+    gap:2vw;padding:60px 5vw 80px;min-height:calc(100vh - var(--header-h, 108px));
   }
   .cal-col{display:flex;flex-direction:column;align-items:center;gap:28px}
   .cal-col svg{width:min(300px,26vw)}
@@ -134,7 +144,7 @@
 
   /* ---------- LOCALIZAÇÃO ---------- */
   .loc-wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:4vw;align-items:center;
-    padding:70px 6vw 90px;min-height:calc(100vh - 96px)}
+    padding:70px 6vw 90px;min-height:calc(100vh - var(--header-h, 108px))}
   .loc-photo{
     border:6px solid var(--navy);transform:rotate(-4deg);
     aspect-ratio:4/3;overflow:hidden;box-shadow:0 14px 34px rgba(28,58,84,.22);
@@ -207,7 +217,7 @@
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:900px){
     .home-video{width:180%; margin-left: -35%;}
-    header{flex-direction:column;align-items:flex-start;gap:14px; align-items: center;}
+    #siteHeader{flex-direction:column;align-items:flex-start;gap:14px; align-items: center;}
     nav{order:3;width:100%}
     .rsvp{order:2}
     .casamento{grid-template-columns:1fr;gap:50px;text-align:center}

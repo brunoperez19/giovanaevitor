@@ -21,17 +21,16 @@
 </head>
 <body>
 
-<!-- ============ HEADER (hidden on home) ============ -->
 <header id="siteHeader">
-  <div class="logo">GIOVANA E VITOR</div>
+  <a class="logo" href="#home">GIOVANA E VITOR</a>
   <nav>
-    <a data-nav="casamento">o casamento</a>
-    <a data-nav="localizacao">localização</a>
-    <a data-nav="estadia">estadia e beleza</a>
-    <a data-nav="locomocao">locomoção</a>
-    <a data-nav="presentes">presentes</a>
+    <a href="#casamento" data-nav="casamento">o casamento</a>
+    <a href="#localizacao" data-nav="localizacao">localização</a>
+    <a href="#estadia" data-nav="estadia">estadia e beleza</a>
+    <a href="#locomocao" data-nav="locomocao">locomoção</a>
+    <a href="#presentes" data-nav="presentes">presentes</a>
   </nav>
-  <button class="rsvp">confirme sua presença</button>
+  <button class="rsvp" type="button">confirme sua presença</button>
 </header>
 
 <!-- ============ HOME ============ -->
@@ -237,20 +236,54 @@
     <script src="./js/data.js"></script>
     <script src="./js/app.js"></script>
 <script>
-  /* ---------- page navigation ---------- */
-  const pages = ['home','casamento','localizacao','estadia', 'locomocao', 'presentes'];
+  /* ---------- fixed header + scroll navigation ---------- */
   const header = document.getElementById('siteHeader');
-  function go(id){
-    pages.forEach(p=>document.getElementById(p).classList.toggle('active', p===id));
-    document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active', a.dataset.nav===id));
-    window.scrollTo({top:0,behavior:'instant'});
-    if (id === 'estadia' && window.initEstadiaMap) {
-      window.initEstadiaMap();
-    }
+  const sections = Array.from(document.querySelectorAll('section.page'));
+  const navLinks = Array.from(document.querySelectorAll('nav a[data-nav]'));
+
+  function syncHeaderOffset() {
+    const height = header ? header.offsetHeight : 0;
+    document.documentElement.style.setProperty('--header-h', height + 'px');
   }
-  document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>go(a.dataset.nav)));
-  document.querySelectorAll('.logo').forEach(l=>l.addEventListener('click',()=>go('home')));
-  document.querySelectorAll('.logo').forEach(l=>l.style.cursor='pointer');
+
+  function setActive(id) {
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.dataset.nav === id);
+    });
+  }
+
+  function currentSectionId() {
+    const line = (header ? header.offsetHeight : 0) + 32;
+    let current = sections[0] ? sections[0].id : '';
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= line) {
+        current = section.id;
+      }
+    });
+    return current;
+  }
+
+  syncHeaderOffset();
+  window.addEventListener('resize', syncHeaderOffset);
+  window.addEventListener('load', () => {
+    syncHeaderOffset();
+    setActive(currentSectionId());
+    if (window.initEstadiaMap) window.initEstadiaMap();
+  });
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      setActive(currentSectionId());
+      ticking = false;
+    });
+  }, { passive: true });
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => setActive(link.dataset.nav));
+  });
 
   /* ---------- estadia sub-tabs ---------- */
   const subs=['aruja','guarulhos','domicilio'];

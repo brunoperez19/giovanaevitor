@@ -121,7 +121,7 @@ function initMap() {
 
   map = L.map("map", {
     zoomControl: true,
-    scrollWheelZoom: true,
+    scrollWheelZoom: false,
   });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -151,6 +151,6 @@ if (backButton) {
   backButton.addEventListener("click", showList);
 }
 
-if (document.getElementById("estadia")?.classList.contains("active")) {
+if (document.getElementById("map")) {
   initMap();
 }
