@@ -1,7 +1,7 @@
 const LOCATIONS = [
   {
-    id: "aruja",
-    title: "Arujá — Jardim Rincão",
+    id: "ibis-aruja",
+    title: "ibis Arujá",
     address: "R. São José, 888 - Jardim Rincao, Arujá - SP, 07400-405",
     street: "R. São José, 888",
     neighborhood: "Jardim Rincão",
@@ -10,10 +10,13 @@ const LOCATIONS = [
     cep: "07400-405",
     lat: -23.4023851,
     lng: -46.3226824,
+    phone: "(11) 4610-6527",
+    email: "ha0h3-re@accor.com",
+    image: "./imagens/hoteis/ibis-aruja.jpg",
   },
   {
-    id: "santa-isabel",
-    title: "Santa Isabel — Morro Grande",
+    id: "estancia-santa-isabel",
+    title: "Hotel Estância Santa Isabel",
     address:
       "Estr. Benedito Alves da Silva, s/n - Morro Grande, Santa Isabel - SP, 07500-000",
     street: "Estr. Benedito Alves da Silva, s/n",
@@ -23,23 +26,13 @@ const LOCATIONS = [
     cep: "07500-000",
     lat: -23.3380979,
     lng: -46.2187653,
+    phone: "(11) 97119-5365",
+    email: "reservas@hotelestanciasantaisabel.com.br",
+    image: "./imagens/hoteis/estancia-santa-isabel.jpg",
   },
   {
-    id: "guarulhos-base",
-    title: "Guarulhos — Base Aérea",
-    address:
-      "Acesso Base Aerea - Rod. Hélio Smidt, S/N - Cumbica, Guarulhos - SP, 07190-100",
-    street: "Acesso Base Aerea - Rod. Hélio Smidt, S/N",
-    neighborhood: "Cumbica",
-    city: "Guarulhos",
-    state: "SP",
-    cep: "07190-100",
-    lat: -23.437859,
-    lng: -46.4805562,
-  },
-  {
-    id: "guarulhos-cecap",
-    title: "Guarulhos — Parque Cecap",
+    id: "marriott-guarulhos",
+    title: "São Paulo Airport Marriott Hotel",
     address:
       "Av. Min. Evandro Lins e Silva, 10/100 - Parque Cecap, Guarulhos - SP, 07190-017",
     street: "Av. Min. Evandro Lins e Silva, 10/100",
@@ -49,5 +42,8 @@ const LOCATIONS = [
     cep: "07190-017",
     lat: -23.4531205,
     lng: -46.4945935,
+    phone: "(11) 2468-6999",
+    email: "reservas.gru@deville.com.br",
+    image: "./imagens/hoteis/marriott-guarulhos.jpg",
   },
 ];

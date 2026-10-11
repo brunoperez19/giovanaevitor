@@ -1,5 +1,5 @@
 .estadia-map-wrap {
-  padding-top: 0;
+  padding-top: 48px;
   min-height: auto;
 }
 
@@ -44,6 +44,11 @@
   font-weight: 300;
 }
 
+.map-app .sidebar__hint strong {
+  font-weight: 600;
+  color: var(--navy);
+}
+
 .map-app .sidebar__list {
   flex: 1;
   overflow-y: auto;
@@ -51,6 +56,10 @@
 }
 
 .map-app .location-card {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  column-gap: 0.9rem;
+  align-items: stretch;
   width: 100%;
   margin-bottom: 0.65rem;
   padding: 1rem 1.1rem;
@@ -69,6 +78,19 @@
   transform: translateY(-1px);
 }
 
+.map-app .location-card__photo {
+  width: 92px;
+  height: 100%;
+  min-height: 118px;
+  border-radius: 6px;
+  object-fit: cover;
+  align-self: stretch;
+}
+
+.map-app .location-card__body {
+  min-width: 0;
+}
+
 .map-app .location-card__title {
   margin: 0 0 0.35rem;
   font-size: 1rem;
@@ -82,6 +104,41 @@
   font-size: 0.88rem;
   line-height: 1.45;
   font-weight: 300;
+}
+
+.map-app .location-card__open {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.map-app .location-card__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.45rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.map-app .location-card__contact a,
+.map-app .detail-item__value a {
+  color: var(--navy);
+  font-weight: 500;
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+.map-app .location-card__contact a:hover,
+.map-app .detail-item__value a:hover {
+  text-decoration: underline;
 }
 
 .map-app .sidebar__detail {
@@ -185,7 +242,7 @@
 @media (max-width: 900px) {
   .map-app {
     grid-template-columns: 1fr;
-    grid-template-rows: 280px 1fr;
+    grid-template-rows: 200px 1fr;
     height: auto;
   }
 
@@ -193,10 +250,13 @@
     order: 2;
     border-right: 0;
     border-top: 1px solid rgba(28, 58, 84, 0.08);
-    max-height: auto;
+    max-height: none;
   }
 
-  .map-app .map-container {
-    min-height: 280px;
+  .map-app .map-container,
+  .map-app #map {
+    height: 200px;
+    min-height: 0;
+    max-height: 200px;
   }
 }
