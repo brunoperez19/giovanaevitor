@@ -29,7 +29,7 @@ function buildOrder(gift, base) {
   };
 
   if (base.startsWith("https://")) {
-    const page = `${base}/site.html`;
+    const page = `${base}/`;
     order.config = {
       online: {
         success_url: `${page}?pagamento=aprovado`,
