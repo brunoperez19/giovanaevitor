@@ -193,7 +193,7 @@ function renderGifts(gifts, category) {
     currency: "BRL",
   });
   list.innerHTML = gifts
-    .filter((gift) => gift.category === category)
+    .filter((gift) => category === "Todos" || gift.category === category)
     .map(
       (gift) => `
       <article class="gift-card">
@@ -257,7 +257,7 @@ async function initGifts() {
     gifts = [];
   }
   if (!Array.isArray(gifts) || gifts.length === 0) return;
-  const categories = [...new Set(gifts.map((gift) => gift.category))];
+  const categories = ["Todos", ...new Set(gifts.map((gift) => gift.category))];
   menu.innerHTML = categories
     .map(
       (category, index) =>
