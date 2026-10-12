@@ -402,7 +402,11 @@
     .make-card{flex-direction:column;align-items:stretch;gap:14px;padding:16px}
     .make-card .ph{width:100%;max-width:100%}
     .make-illu{display:none}
-    .gift-grid{grid-template-columns:1fr}
+    .gift-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .gift-img{margin-bottom:12px}
+    .gift-card h3{font-size:14px;line-height:1.3;padding:0 10px}
+    .gift-card .price{font-size:13px;padding:0 10px;margin-bottom:12px}
+    .gift-card .gift-btn{margin-top:auto;padding:12px 8px;font-size:12px;letter-spacing:.06em}
     #home .gv svg{transform:scale(1.3)}
     .responsive{width:100%;height:auto;display:block}
   }
