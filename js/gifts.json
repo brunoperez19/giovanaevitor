@@ -1,233 +1,338 @@
 [
   {
+    "id": "gift-003",
+    "title": "Liquidificador",
+    "category": "Para casa nova",
+    "price": 70,
+    "image": "./imagens/presentes/03_liquidificador.jpg?v=2"
+  },
+  {
     "id": "gift-001",
     "title": "Jogo de talheres",
     "category": "Para casa nova",
-    "price": 50,
-    "image": "./imagens/presentes/01_kit-talheres.jpg"
+    "price": 180,
+    "image": "./imagens/presentes/01_kit-talheres.jpg?v=2"
+  },
+  {
+    "id": "gift-034",
+    "title": "Jogo de xícaras de porcelana",
+    "category": "Para casa nova",
+    "price": 180,
+    "image": "./imagens/presentes/36_xicaras-porcelana.jpg?v=2"
   },
   {
     "id": "gift-002",
     "title": "Jogo de toalhas casal",
     "category": "Para casa nova",
-    "price": 90,
-    "image": "./imagens/presentes/02_toalhas-casal.jpg"
-  },
-  {
-    "id": "gift-003",
-    "title": "Liquidificador",
-    "category": "Para casa nova",
-    "price": 120,
-    "image": "./imagens/presentes/03_liquidificador.jpg"
+    "price": 280,
+    "image": "./imagens/presentes/02_toalhas-casal.jpg?v=2"
   },
   {
     "id": "gift-004",
     "title": "Jogo de cama 300 fios",
     "category": "Para casa nova",
-    "price": 150,
-    "image": "./imagens/presentes/04_jogo-cama.jpg"
+    "price": 350,
+    "image": "./imagens/presentes/04_jogo-cama.jpg?v=2"
+  },
+  {
+    "id": "gift-035",
+    "title": "Purificador de água",
+    "category": "Para casa nova",
+    "price": 400,
+    "image": "./imagens/presentes/40_purificador-agua.jpg?v=2"
   },
   {
     "id": "gift-005",
     "title": "Jogo de facas",
     "category": "Para casa nova",
-    "price": 180,
-    "image": "./imagens/presentes/05_kit-facas.jpg"
-  },
-  {
-    "id": "gift-006",
-    "title": "Jogo de panelas",
-    "category": "Para casa nova",
-    "price": 250,
-    "image": "./imagens/presentes/06_jogo-panelas.jpg"
+    "price": 450,
+    "image": "./imagens/presentes/05_kit-facas.jpg?v=2"
   },
   {
     "id": "gift-007",
     "title": "Máquina de café",
     "category": "Para casa nova",
-    "price": 350,
-    "image": "./imagens/presentes/07_maquina-cafe.jpg"
+    "price": 500,
+    "image": "./imagens/presentes/07_maquina-cafe.jpg?v=2"
   },
   {
-    "id": "gift-008",
-    "title": "Aspirador robô",
+    "id": "gift-036",
+    "title": "Air fryer",
+    "category": "Para casa nova",
+    "price": 500,
+    "image": "./imagens/presentes/38_air-fryer.jpg?v=2"
+  },
+  {
+    "id": "gift-006",
+    "title": "Jogo de panelas",
     "category": "Para casa nova",
     "price": 550,
-    "image": "./imagens/presentes/08_aspirador-robo.jpg"
+    "image": "./imagens/presentes/06_jogo-panelas.jpg?v=2"
   },
   {
-    "id": "gift-009",
-    "title": "Smart TV 50\"",
+    "id": "gift-037",
+    "title": "Aparelho de jantar",
     "category": "Para casa nova",
-    "price": 900,
-    "image": "./imagens/presentes/09_smart-tv.jpg"
+    "price": 800,
+    "image": "./imagens/presentes/37_aparelho-jantar.jpg?v=2"
   },
   {
     "id": "gift-010",
     "title": "Jogo de taças de cristal",
     "category": "Para casa nova",
-    "price": 1200,
-    "image": "./imagens/presentes/21_tacas-cristal.jpg"
+    "price": 850,
+    "image": "./imagens/presentes/21_tacas-cristal.jpg?v=2"
   },
   {
-    "id": "gift-011",
-    "title": "Geladeira",
+    "id": "gift-038",
+    "title": "Batedeira planetária",
     "category": "Para casa nova",
-    "price": 1300,
-    "image": "./imagens/presentes/10_geladeira.jpg"
+    "price": 900,
+    "image": "./imagens/presentes/39_batedeira-planetaria.jpg?v=2"
   },
   {
     "id": "gift-012",
     "title": "Adega climatizada para vinhos",
     "category": "Para casa nova",
     "price": 1400,
-    "image": "./imagens/presentes/20_adega-vinhos.jpg"
+    "image": "./imagens/presentes/20_adega-vinhos.jpg?v=2"
   },
   {
-    "id": "gift-013",
-    "title": "Máquina de lavar louça",
+    "id": "gift-008",
+    "title": "Aspirador robô",
     "category": "Para casa nova",
-    "price": 1600,
-    "image": "./imagens/presentes/35_maquina-lavar-loucas.jpg"
+    "price": 1500,
+    "image": "./imagens/presentes/08_aspirador-robo.jpg?v=2"
   },
   {
     "id": "gift-014",
     "title": "Fogão cooktop de indução",
     "category": "Para casa nova",
     "price": 1800,
-    "image": "./imagens/presentes/22_cooktop-inducao.jpg"
+    "image": "./imagens/presentes/22_cooktop-inducao.jpg?v=2"
   },
   {
-    "id": "gift-015",
-    "title": "Máquina de lavar e secar",
+    "id": "gift-009",
+    "title": "Smart TV 50\"",
     "category": "Para casa nova",
-    "price": 2500,
-    "image": "./imagens/presentes/23_lava-seca.jpg"
+    "price": 2000,
+    "image": "./imagens/presentes/09_smart-tv.jpg?v=2"
+  },
+  {
+    "id": "gift-011",
+    "title": "Geladeira",
+    "category": "Para casa nova",
+    "price": 2200,
+    "image": "./imagens/presentes/10_geladeira.jpg?v=2"
   },
   {
     "id": "gift-016",
     "title": "Ar-condicionado split",
     "category": "Para casa nova",
-    "price": 2900,
-    "image": "./imagens/presentes/24_ar-condicionado.jpg"
+    "price": 3000,
+    "image": "./imagens/presentes/24_ar-condicionado.jpg?v=2"
+  },
+  {
+    "id": "gift-013",
+    "title": "Máquina de lavar louça",
+    "category": "Para casa nova",
+    "price": 3200,
+    "image": "./imagens/presentes/35_maquina-lavar-loucas.jpg?v=2"
+  },
+  {
+    "id": "gift-015",
+    "title": "Máquina de lavar e secar",
+    "category": "Para casa nova",
+    "price": 3200,
+    "image": "./imagens/presentes/23_lava-seca.jpg?v=2"
   },
   {
     "id": "gift-017",
     "title": "Vaso decorativo",
     "category": "Para casa nova",
-    "price": 60,
-    "image": "./imagens/presentes/11_vaso-decorativo.jpg"
+    "price": 150,
+    "image": "./imagens/presentes/11_vaso-decorativo.jpg?v=2"
+  },
+  {
+    "id": "gift-039",
+    "title": "Kit de velas aromáticas",
+    "category": "Para casa nova",
+    "price": 180,
+    "image": "./imagens/presentes/41_velas-aromaticas.jpg?v=2"
+  },
+  {
+    "id": "gift-040",
+    "title": "Almofadas para sofá",
+    "category": "Para casa nova",
+    "price": 350,
+    "image": "./imagens/presentes/42_almofadas-sofa.jpg?v=2"
+  },
+  {
+    "id": "gift-041",
+    "title": "Abajur para quarto",
+    "category": "Para casa nova",
+    "price": 350,
+    "image": "./imagens/presentes/43_abajur-quarto.jpg?v=2"
   },
   {
     "id": "gift-018",
     "title": "Quadro para sala",
     "category": "Para casa nova",
-    "price": 130,
-    "image": "./imagens/presentes/12_quadro-sala.jpg"
+    "price": 450,
+    "image": "./imagens/presentes/12_quadro-sala.jpg?v=2"
   },
   {
     "id": "gift-019",
     "title": "Luminária de piso",
     "category": "Para casa nova",
-    "price": 200,
-    "image": "./imagens/presentes/13_luminaria-piso.jpg"
-  },
-  {
-    "id": "gift-020",
-    "title": "Tapete para sala",
-    "category": "Para casa nova",
-    "price": 280,
-    "image": "./imagens/presentes/14_tapete-sala.jpg"
-  },
-  {
-    "id": "gift-021",
-    "title": "Decoração de varanda",
-    "category": "Para casa nova",
-    "price": 400,
-    "image": "./imagens/presentes/15_decoracao-varanda.jpg"
+    "price": 450,
+    "image": "./imagens/presentes/13_luminaria-piso.jpg?v=2"
   },
   {
     "id": "gift-022",
     "title": "Espelho decorativo",
     "category": "Para casa nova",
-    "price": 1300,
-    "image": "./imagens/presentes/25_espelho-decorativo.jpg"
+    "price": 900,
+    "image": "./imagens/presentes/25_espelho-decorativo.jpg?v=2"
+  },
+  {
+    "id": "gift-020",
+    "title": "Tapete para sala",
+    "category": "Para casa nova",
+    "price": 1200,
+    "image": "./imagens/presentes/14_tapete-sala.jpg?v=2"
+  },
+  {
+    "id": "gift-021",
+    "title": "Decoração de varanda",
+    "category": "Para casa nova",
+    "price": 1200,
+    "image": "./imagens/presentes/15_decoracao-varanda.jpg?v=2"
+  },
+  {
+    "id": "gift-042",
+    "title": "Mesa de centro",
+    "category": "Para casa nova",
+    "price": 1200,
+    "image": "./imagens/presentes/44_mesa-centro.jpg?v=2"
   },
   {
     "id": "gift-023",
     "title": "Poltrona de design",
     "category": "Para casa nova",
-    "price": 1800,
-    "image": "./imagens/presentes/27_poltrona-design.jpg"
+    "price": 2000,
+    "image": "./imagens/presentes/27_poltrona-design.jpg?v=2"
   },
   {
     "id": "gift-024",
     "title": "Cortina sob medida",
     "category": "Para casa nova",
-    "price": 2200,
-    "image": "./imagens/presentes/28_cortina-sob-medida.jpg"
+    "price": 2500,
+    "image": "./imagens/presentes/28_cortina-sob-medida.jpg?v=2"
   },
   {
     "id": "gift-025",
     "title": "Aparador para sala de jantar",
     "category": "Para casa nova",
-    "price": 2800,
-    "image": "./imagens/presentes/29_aparador-sala-jantar.jpg"
+    "price": 2500,
+    "image": "./imagens/presentes/29_aparador-sala-jantar.jpg?v=2"
+  },
+  {
+    "id": "gift-043",
+    "title": "Sofá 3 lugares",
+    "category": "Para casa nova",
+    "price": 5000,
+    "image": "./imagens/presentes/45_sofa-3-lugares.jpg?v=2"
   },
   {
     "id": "gift-026",
     "title": "Café da manhã na cama",
     "category": "Lua de mel",
-    "price": 100,
-    "image": "./imagens/presentes/16_cafe-manha-cama.jpg"
+    "price": 400,
+    "image": "./imagens/presentes/16_cafe-manha-cama.jpg?v=2"
+  },
+  {
+    "id": "gift-044",
+    "title": "Brinde com espumante no quarto",
+    "category": "Lua de mel",
+    "price": 450,
+    "image": "./imagens/presentes/46_brinde-espumante.jpg?v=2"
   },
   {
     "id": "gift-027",
     "title": "Traslado do aeroporto",
     "category": "Lua de mel",
-    "price": 350,
-    "image": "./imagens/presentes/17_traslado-aeroporto.jpg"
+    "price": 600,
+    "image": "./imagens/presentes/17_traslado-aeroporto.jpg?v=2"
+  },
+  {
+    "id": "gift-045",
+    "title": "Passeio de barco",
+    "category": "Lua de mel",
+    "price": 700,
+    "image": "./imagens/presentes/47_passeio-barco.jpg?v=2"
+  },
+  {
+    "id": "gift-046",
+    "title": "Sessão de fotos na viagem",
+    "category": "Lua de mel",
+    "price": 900,
+    "image": "./imagens/presentes/48_sessao-fotos-viagem.jpg?v=2"
   },
   {
     "id": "gift-028",
     "title": "Jantar romântico",
     "category": "Lua de mel",
-    "price": 700,
-    "image": "./imagens/presentes/18_jantar-romantico.jpg"
-  },
-  {
-    "id": "gift-029",
-    "title": "Massagem para o casal",
-    "category": "Lua de mel",
-    "price": 1200,
-    "image": "./imagens/presentes/19_massagem-casal.jpg"
+    "price": 1000,
+    "image": "./imagens/presentes/18_jantar-romantico.jpg?v=2"
   },
   {
     "id": "gift-030",
     "title": "Degustação de vinhos privada",
     "category": "Lua de mel",
-    "price": 1300,
-    "image": "./imagens/presentes/30_degustacao-vinhos.jpg"
+    "price": 1000,
+    "image": "./imagens/presentes/30_degustacao-vinhos.jpg?v=2"
   },
   {
-    "id": "gift-031",
-    "title": "Jantar em restaurante estrelado",
+    "id": "gift-029",
+    "title": "Massagem para o casal",
+    "category": "Lua de mel",
+    "price": 1300,
+    "image": "./imagens/presentes/19_massagem-casal.jpg?v=2"
+  },
+  {
+    "id": "gift-047",
+    "title": "Ingressos para concerto",
+    "category": "Lua de mel",
+    "price": 1500,
+    "image": "./imagens/presentes/49_ingressos-concerto.jpg?v=2"
+  },
+  {
+    "id": "gift-048",
+    "title": "Tour por cidades históricas",
     "category": "Lua de mel",
     "price": 1800,
-    "image": "./imagens/presentes/31_jantar-restaurante-estrelado.jpg"
+    "image": "./imagens/presentes/50_tour-cidades-historicas.jpg?v=2"
   },
   {
     "id": "gift-032",
     "title": "Diária extra de hotel na viagem",
     "category": "Lua de mel",
     "price": 2400,
-    "image": "./imagens/presentes/33_diaria-extra-hotel.jpg"
+    "image": "./imagens/presentes/33_diaria-extra-hotel.jpg?v=2"
   },
   {
     "id": "gift-033",
     "title": "Experiência gastronômica com harmonização",
     "category": "Lua de mel",
-    "price": 3000,
-    "image": "./imagens/presentes/34_experiencia-gastronomica.jpg"
+    "price": 2500,
+    "image": "./imagens/presentes/34_experiencia-gastronomica.jpg?v=2"
+  },
+  {
+    "id": "gift-031",
+    "title": "Jantar em restaurante estrelado",
+    "category": "Lua de mel",
+    "price": 3500,
+    "image": "./imagens/presentes/31_jantar-restaurante-estrelado.jpg?v=2"
   }
 ]
