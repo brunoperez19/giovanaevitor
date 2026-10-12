@@ -1,10 +1,45 @@
 [
   {
+    "id": "gift-049",
+    "title": "Espátula",
+    "category": "Para casa nova",
+    "price": 35,
+    "image": "./imagens/presentes/52_espatula.jpg?v=2"
+  },
+  {
+    "id": "gift-050",
+    "title": "Petisqueira",
+    "category": "Para casa nova",
+    "price": 55,
+    "image": "./imagens/presentes/53_petisqueira.jpg?v=2"
+  },
+  {
+    "id": "gift-051",
+    "title": "Jogo de copos",
+    "category": "Para casa nova",
+    "price": 60,
+    "image": "./imagens/presentes/51_jogo-copos.jpg?v=2"
+  },
+  {
     "id": "gift-003",
     "title": "Liquidificador",
     "category": "Para casa nova",
     "price": 70,
     "image": "./imagens/presentes/03_liquidificador.jpg?v=2"
+  },
+  {
+    "id": "gift-052",
+    "title": "Kit de coquetelaria",
+    "category": "Para casa nova",
+    "price": 120,
+    "image": "./imagens/presentes/54_kit-coquetelaria.jpg?v=2"
+  },
+  {
+    "id": "gift-053",
+    "title": "Conjunto de formas de bolo",
+    "category": "Para casa nova",
+    "price": 125,
+    "image": "./imagens/presentes/55_formas-bolo.jpg?v=2"
   },
   {
     "id": "gift-001",
