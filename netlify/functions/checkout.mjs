@@ -22,8 +22,6 @@ function buildOrder(gift, base) {
         title: gift.title,
         unit_price: amount,
         quantity: 1,
-        unit_measure: "unit",
-        total_amount: amount,
       },
     ],
   };
@@ -80,7 +78,13 @@ export default async function handler(request) {
 
   const data = await response.json().catch(() => ({}));
   if (!response.ok || typeof data.checkout_url !== "string") {
-    console.error("Mercado Pago", response.status);
+    const detail = {
+      status: response.status,
+      message: data.message,
+      errors: data.errors,
+      cause: data.cause,
+    };
+    console.error("Mercado Pago", JSON.stringify(detail));
     return Response.json(
       { error: "Não foi possível abrir o checkout." },
       { status: 502 }
