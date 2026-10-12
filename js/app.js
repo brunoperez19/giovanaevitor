@@ -248,10 +248,55 @@ async function startCheckout(button) {
   }
 }
 
+function initGiftMessage(gifts, openWithGiftId) {
+  const form = document.getElementById("gift-message");
+  const link = document.getElementById("gift-message-link");
+  if (!form || !link) return;
+  const giftField = document.getElementById("gift-message-gift");
+  const giftLabel = document.getElementById("gift-message-label");
+  const statusLine = document.getElementById("gift-message-status");
+
+  function open(giftId) {
+    const gift = gifts.find((item) => item.id === giftId);
+    giftField.value = gift ? gift.title : "";
+    giftLabel.hidden = !gift;
+    giftLabel.textContent = gift ? `Presente: ${gift.title}` : "";
+    form.hidden = false;
+    link.hidden = true;
+  }
+
+  link.addEventListener("click", () => {
+    open("");
+    form.querySelector('[name="nome"]').focus();
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('[type="submit"]');
+    button.disabled = true;
+    statusLine.textContent = "Enviando...";
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+      if (!response.ok) throw new Error();
+      form.innerHTML = `<p class="gift-message__thanks">Mensagem enviada. Os noivos vão adorar ler!</p>`;
+    } catch {
+      button.disabled = false;
+      statusLine.textContent = "Não foi possível enviar agora. Tente de novo em instantes.";
+    }
+  });
+
+  if (openWithGiftId !== null) open(openWithGiftId);
+}
+
 async function initGifts() {
   const menu = document.getElementById("gift-menu");
   const list = document.getElementById("gift-list");
-  const status = new URLSearchParams(location.search).get("pagamento");
+  const params = new URLSearchParams(location.search);
+  const status = params.get("pagamento");
   const messages = {
     aprovado: "Pagamento recebido. Obrigado pelo presente.",
     pendente: "Pagamento em análise. O presente é confirmado quando o Mercado Pago aprovar.",
@@ -272,6 +317,8 @@ async function initGifts() {
     gifts = [];
   }
   if (!Array.isArray(gifts) || gifts.length === 0) return;
+  const paid = status === "aprovado" || status === "pendente";
+  initGiftMessage(gifts, paid ? params.get("presente") || "" : null);
   const categories = ["Todos", ...new Set(gifts.map((gift) => gift.category))];
   const priceSelect = document.getElementById("gift-price");
   let category = categories[0];

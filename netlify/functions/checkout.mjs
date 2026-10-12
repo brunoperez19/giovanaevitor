@@ -28,10 +28,11 @@ function buildOrder(gift, base) {
 
   if (base.startsWith("https://")) {
     const page = `${base}/`;
+    const presente = encodeURIComponent(gift.id);
     order.config = {
       online: {
-        success_url: `${page}?pagamento=aprovado`,
-        pending_url: `${page}?pagamento=pendente`,
+        success_url: `${page}?pagamento=aprovado&presente=${presente}`,
+        pending_url: `${page}?pagamento=pendente&presente=${presente}`,
         failure_url: `${page}?pagamento=recusado`,
         auto_return: "approved",
       },
