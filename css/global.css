@@ -270,6 +270,20 @@
   }
   .gift-menu button.active{font-weight:400;border-bottom-color:var(--navy)}
   .gift-menu button:hover{opacity:.65}
+  .gift-price{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:-16px auto 36px;color:var(--navy);
+    font-family:'Lato',sans-serif;font-size:16px;font-weight:300;
+  }
+  .gift-price select{
+    appearance:none;-webkit-appearance:none;
+    background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231C3A54' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 12px center;
+    border:1px solid rgba(28,58,84,.35);border-radius:999px;
+    color:var(--navy);font:inherit;font-weight:400;
+    padding:8px 36px 8px 16px;cursor:pointer;
+  }
+  .gift-price select:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+  .gift-empty{grid-column:1/-1;text-align:center;color:var(--navy);font-weight:300;font-size:18px;margin:20px 0}
   .locomocao-text{
     max-width:40rem;
     margin:-20px auto 40px;

@@ -114,63 +114,63 @@
   {
     "id": "gift-017",
     "title": "Vaso decorativo",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 60,
     "image": "./imagens/presentes/11_vaso-decorativo.jpg"
   },
   {
     "id": "gift-018",
     "title": "Quadro para sala",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 130,
     "image": "./imagens/presentes/12_quadro-sala.jpg"
   },
   {
     "id": "gift-019",
     "title": "Luminária de piso",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 200,
     "image": "./imagens/presentes/13_luminaria-piso.jpg"
   },
   {
     "id": "gift-020",
     "title": "Tapete para sala",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 280,
     "image": "./imagens/presentes/14_tapete-sala.jpg"
   },
   {
     "id": "gift-021",
     "title": "Decoração de varanda",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 400,
     "image": "./imagens/presentes/15_decoracao-varanda.jpg"
   },
   {
     "id": "gift-022",
     "title": "Espelho decorativo",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 1300,
     "image": "./imagens/presentes/25_espelho-decorativo.jpg"
   },
   {
     "id": "gift-023",
     "title": "Poltrona de design",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 1800,
     "image": "./imagens/presentes/27_poltrona-design.jpg"
   },
   {
     "id": "gift-024",
     "title": "Cortina sob medida",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 2200,
     "image": "./imagens/presentes/28_cortina-sob-medida.jpg"
   },
   {
     "id": "gift-025",
     "title": "Aparador para sala de jantar",
-    "category": "Para decorar",
+    "category": "Para casa nova",
     "price": 2800,
     "image": "./imagens/presentes/29_aparador-sala-jantar.jpg"
   },

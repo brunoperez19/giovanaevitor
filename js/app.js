@@ -185,15 +185,30 @@ if (document.getElementById("map")) {
   initMap();
 }
 
-function renderGifts(gifts, category) {
+function inPriceRange(price, range) {
+  if (!range) return true;
+  const [min, max] = range.split("-");
+  if (min && price < Number(min)) return false;
+  if (max && price > Number(max)) return false;
+  return true;
+}
+
+function renderGifts(gifts, category, range) {
   const list = document.getElementById("gift-list");
   if (!list) return;
   const brl = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
-  list.innerHTML = gifts
+  const visible = gifts
     .filter((gift) => category === "Todos" || gift.category === category)
+    .filter((gift) => inPriceRange(gift.price, range))
+    .sort((a, b) => a.price - b.price);
+  if (visible.length === 0) {
+    list.innerHTML = `<p class="gift-empty">Nenhum presente nessa faixa de valor.</p>`;
+    return;
+  }
+  list.innerHTML = visible
     .map(
       (gift) => `
       <article class="gift-card">
@@ -258,10 +273,13 @@ async function initGifts() {
   }
   if (!Array.isArray(gifts) || gifts.length === 0) return;
   const categories = ["Todos", ...new Set(gifts.map((gift) => gift.category))];
+  const priceSelect = document.getElementById("gift-price");
+  let category = categories[0];
+  const render = () => renderGifts(gifts, category, priceSelect ? priceSelect.value : "");
   menu.innerHTML = categories
     .map(
-      (category, index) =>
-        `<button type="button" class="${index === 0 ? "active" : ""}" data-gift-cat="${category}">${category}</button>`
+      (name, index) =>
+        `<button type="button" class="${index === 0 ? "active" : ""}" data-gift-cat="${name}">${name}</button>`
     )
     .join("");
   menu.addEventListener("click", (event) => {
@@ -270,14 +288,16 @@ async function initGifts() {
     menu.querySelectorAll("button").forEach((item) => {
       item.classList.toggle("active", item === button);
     });
-    renderGifts(gifts, button.dataset.giftCat);
+    category = button.dataset.giftCat;
+    render();
   });
+  if (priceSelect) priceSelect.addEventListener("change", render);
   list.addEventListener("click", (event) => {
     const button = event.target.closest("[data-gift-id]");
     if (!button || button.disabled) return;
     startCheckout(button);
   });
-  renderGifts(gifts, categories[0]);
+  render();
 }
 
 initGifts();
